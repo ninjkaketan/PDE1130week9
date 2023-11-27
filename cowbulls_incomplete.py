@@ -1,9 +1,18 @@
 import random
 
 def compare_numbers(number, user_guess):## your code here
+    cow = 0
+    bull = 0
+    #adding for loop
+    for i in range(4):
+        if user_guess[i] == number[i]:
+            bull+=1
+        elif user_guess[i] in number:
+            cow+=1
+    number = cow,bull
     return number#changed cowbull to number
-
-playing = True #gotta play the game
+if __name__ == "__main__":
+    playing = True #gotta play the game
 number = str(random.randint(0,9999)) #random 4 digit number
 guesses = 0
 print(number)#added brackets
@@ -23,7 +32,7 @@ while playing:
     #commemnt
     print("You have "+ str(cowbullcount[0]) + " cows, and " + str(cowbullcount[1]) + " bulls.")
 
-    if cowbullcount[1]=="4":
+    if cowbullcount[1]==4:
         playing = False
         print("You win the game after " + str(guesses) + "! The number was "+str(number))
         break #redundant exit
